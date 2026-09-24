@@ -1,0 +1,318 @@
+[
+  {
+    "inputs": [],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "inputs": [],
+    "name": "AlreadyIssued",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "AlreadyRevoked",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "NotAdmin",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "NotInstitution",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "UnknownCertificate",
+    "type": "error"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "docHash",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "issuer",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "studentRef",
+        "type": "bytes32"
+      }
+    ],
+    "name": "CertificateIssued",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "docHash",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "reason",
+        "type": "string"
+      }
+    ],
+    "name": "CertificateRevoked",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "inst",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "name",
+        "type": "string"
+      }
+    ],
+    "name": "InstitutionRegistered",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "inst",
+        "type": "address"
+      }
+    ],
+    "name": "InstitutionRevoked",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "admin",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "institutionName",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "isInstitution",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32[]",
+        "name": "docHashes",
+        "type": "bytes32[]"
+      },
+      {
+        "internalType": "bytes32[]",
+        "name": "studentRefs",
+        "type": "bytes32[]"
+      },
+      {
+        "internalType": "string[]",
+        "name": "cids",
+        "type": "string[]"
+      },
+      {
+        "internalType": "uint8[]",
+        "name": "risks",
+        "type": "uint8[]"
+      }
+    ],
+    "name": "issueBatch",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "docHash",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "studentRef",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "string",
+        "name": "ipfsCid",
+        "type": "string"
+      },
+      {
+        "internalType": "uint8",
+        "name": "aiRiskScore",
+        "type": "uint8"
+      }
+    ],
+    "name": "issueCertificate",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "inst",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "name",
+        "type": "string"
+      }
+    ],
+    "name": "registerInstitution",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "docHash",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "string",
+        "name": "reason",
+        "type": "string"
+      }
+    ],
+    "name": "revokeCertificate",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "inst",
+        "type": "address"
+      }
+    ],
+    "name": "revokeInstitution",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "docHash",
+        "type": "bytes32"
+      }
+    ],
+    "name": "verify",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "exists",
+        "type": "bool"
+      },
+      {
+        "internalType": "bool",
+        "name": "valid",
+        "type": "bool"
+      },
+      {
+        "internalType": "address",
+        "name": "issuer",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "issuerName",
+        "type": "string"
+      },
+      {
+        "internalType": "uint64",
+        "name": "issuedAt",
+        "type": "uint64"
+      },
+      {
+        "internalType": "uint64",
+        "name": "revokedAt",
+        "type": "uint64"
+      },
+      {
+        "internalType": "string",
+        "name": "ipfsCid",
+        "type": "string"
+      },
+      {
+        "internalType": "uint8",
+        "name": "aiRiskScore",
+        "type": "uint8"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]
