@@ -6,7 +6,7 @@ import {
   toBytes,
 } from "viem";
 
-const { viem } = await network.connect();
+const { viem } = await network.create();
 
 const contractAddress =
   "0x5fbdb2315678afecb367f032d93f642f64180aa3";
@@ -75,6 +75,11 @@ const response = await publicClient.call({
   to: contractAddress,
   data,
 });
+
+// ✅ Check karo ke data exist karta hai
+if (!response.data) {
+  throw new Error("No data returned from contract");
+}
 
 const decoded = decodeAbiParameters(
   [

@@ -42,7 +42,7 @@ console.log("Document Hash:", docHash);
 // 3. CONNECT TO BLOCKCHAIN
 // ========================================
 
-const { viem } = await network.connect();
+const { viem } = await network.create();
 
 const contractAddress =
   "0x5fbdb2315678afecb367f032d93f642f64180aa3";

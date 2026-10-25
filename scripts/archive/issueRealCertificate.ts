@@ -77,7 +77,7 @@ console.log("IPFS CID:", ipfsCid);
 // 4. CONNECT TO HARDHAT
 // ========================================
 
-const { viem } = await network.connect();
+const { viem } = await network.create();
 
 const [, institution] = await viem.getWalletClients();
 

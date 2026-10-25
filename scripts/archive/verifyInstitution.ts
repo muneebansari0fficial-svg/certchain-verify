@@ -1,7 +1,7 @@
 import { network } from "hardhat";
 import { encodeFunctionData, decodeFunctionResult } from "viem";
 
-const { viem } = await network.connect();
+const { viem } = await network.create();
 
 const contractAddress =
   "0x5fbdb2315678afecb367f032d93f642f64180aa3";
